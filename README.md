@@ -25,17 +25,20 @@ The general recursive pattern for traversing a (non-empty) binary tree is this: 
 We may do these things in any order and still have a legitimate traversal. If we do (L) before (R), we call it left-to-right traversal, otherwise we call it right-to-left traversal.
 
 PRE-ORDER
+
 Display the data part of the root (or current node).
 Traverse the left subtree by recursively calling the pre-order function.
 Traverse the right subtree by recursively calling the pre-order function.
 
 IN-ORDER
+
 Traverse the left subtree by recursively calling the in-order function.
 Display the data part of the root (or current node).
 Traverse the right subtree by recursively calling the in-order function.
 In a search tree, in-order traversal retrieves data in sorted order.
 
 POST-ORDER
+
 Traverse the left subtree by recursively calling the post-order function.
 Traverse the right subtree by recursively calling the post-order function.
 Display the data part of the root (or current node).
@@ -44,9 +47,11 @@ No one sequentialisation according to pre-, in- or post-order describes the unde
  either pre-order or post-order paired with in-order is sufficient to describe the tree uniquely. However, pre-order with post-order leaves some ambiguity in the tree structure.[5]
 
 GENERIC TREE
+
 To traverse any tree with depth-first search, perform the following operations recursively at each node:
 
 PERFORM PRE-ORDER OPERATION.
+
 For each i from 1 to the number of children do:
 Visit i-th, if present.
 Perform in-order operation.
@@ -57,6 +62,7 @@ Also, in practice more than one of pre-order, in-order and post-order operations
 
 
 PSEUDOCODE
+
 Input: A graph G and a vertex v of G
 
 Output: All vertices reachable from v labeled as discovered
