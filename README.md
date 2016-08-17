@@ -33,7 +33,7 @@ In-order
 Traverse the left subtree by recursively calling the in-order function.
 Display the data part of the root (or current node).
 Traverse the right subtree by recursively calling the in-order function.
-In a search tree, in-order traversal retrieves data in sorted order.[4]
+In a search tree, in-order traversal retrieves data in sorted order.
 
 Post-order
 Traverse the left subtree by recursively calling the post-order function.
@@ -61,7 +61,7 @@ Input: A graph G and a vertex v of G
 
 Output: All vertices reachable from v labeled as discovered
 
-A recursive implementation of DFS:[5]
+A recursive implementation of DFS:
 
 1  procedure DFS(G,v):
 2      label v as discovered
