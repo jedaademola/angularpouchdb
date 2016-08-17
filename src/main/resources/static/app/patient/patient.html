@@ -1,32 +1,38 @@
-<div ng-controller="PatientController">
-  
-  <h2>Patient Database</h2>
-  <hr>
-  <create-patient></create-patient>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<h2>
+    Patient Database
+</h2>
+<hr>
+    <create-patient>
+    </create-patient>
+    <div>
+        <table class="table table-hover" ng-controller="PatientController">
+        
+            <thead>
+                <tr>
+                    <th>
+                        Firstname
+                    </th>
+                    <th>
+                        Lastname
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in data">
+                    <td>
+                        {{row.doc.firstname}}
+                    </td>
+                    <td>
+                        {{row.doc.lastname}}
+                    </td>
+                    <td>
+                        {{row.doc.email}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</hr>

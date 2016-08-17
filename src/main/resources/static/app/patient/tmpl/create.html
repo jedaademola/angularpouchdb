@@ -1,4 +1,5 @@
-<form ng-submit="addPatient()">
+<form >
+    <h1 ng-if="status">{{statusText}}</h1>
     <div class="form-group">
         <input type="text" placeholder="FirstName" ng-model="model.firstname" class="form-control">
     </div>
@@ -9,7 +10,7 @@
         <input type="email" placeholder="Email" ng-model="model.email" class="form-control">
     </div>
     <div class="form-group">
-        <input type="submit" class="btn btn-inverse">
+        <input type="submit" ng-click="addPatient()" class="btn btn-inverse">
     </div>
 
 </form>
