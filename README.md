@@ -74,7 +74,7 @@ A recursive implementation of DFS:
 3      for all edges from v to w in G.adjacentEdges(v) do
 4          if vertex w is not labeled as discovered then
 5              recursively call DFS(G,w)
-A non-recursive implementation of DFS:[6]
+A non-recursive implementation of DFS:
 
 1  procedure DFS-iterative(G,v):
 2      let S be a stack
