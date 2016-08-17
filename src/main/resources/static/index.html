@@ -1,10 +1,107 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
     <meta charset="UTF-8">
     <title>ehealth-short-programming</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/dist/css/rdash.css" rel="stylesheet">
 </head>
+
 <body>
-WELCOME HOME!!!
+
+    <body class="hamburg">
+        <div id="page-wrapper" class="open">
+
+            <!-- Sidebar -->
+
+            <div id="sidebar-wrapper">
+                <ul class="sidebar">
+                    <li class="sidebar-main">
+                        <a>
+            Dashboard
+            <span class="menu-icon glyphicon glyphicon-transfer"></span>
+          </a>
+                    </li>
+                    <li class="sidebar-title"><span>NAVIGATION</span></li>
+                    <li class="sidebar-list">
+                        <a ui-sref="patient">Patient <span class="menu-icon fa fa-tachometer"></span></a>
+                    </li>
+                </ul>
+                <div class="sidebar-footer">
+                    <div class="col-xs-4">
+                        <a href="https://github.com/rdash/rdash-barebones" target="_blank">
+            Github
+          </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="#" target="_blank">
+            About
+          </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="#">
+            Support
+          </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- End Sidebar -->
+
+            <div id="content-wrapper">
+                <div class="page-content">
+
+                    <!-- Header Bar -->
+
+                    <div class="row header">
+                        <div class="col-xs-12">
+                            
+                            <div class="meta">
+                                <div class="page">
+                                    Dashboard
+                                </div>
+                                <div class="breadcrumb-links">
+                                    Home / Dashboard
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- End Header Bar -->
+
+                    <!-- Main Content -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="widget">
+                                <div class="widget-body">
+                                    <div ui-view></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Page Content -->
+                </div>
+                <!-- End Content Wrapper -->
+            </div>
+            <!-- End Page Wrapper -->
+    </body>
 </body>
+<script src="assets/js/angular.js"></script>
+<script src="bower_components/pouchdb/dist/pouchdb.js"></script>
+<script src="bower_components/angular-pouchdb/angular-pouchdb.js"></script>
+<script src="assets/js/ui-router.min.js"></script>
+<script>
+//Create the Application module    
+var AppHealth = angular.module('AppHealth', ['ui.router','pouchdb']);
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ['AppHealth']);
+});
+</script>
+<script src="routes/config.js"></script>
+<script src="app/shared/PouchInstance.js"></script>
+<script src="config/boot.js"></script>
+<script src="app/patient/controller.js"></script>
+
 </html>
