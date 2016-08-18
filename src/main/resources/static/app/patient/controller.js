@@ -5,7 +5,7 @@
     apphealth.run(['pouchDB','$rootScope',function(pouchDB){
       
     }]);
-    apphealth.controller('PatientController', ['$scope', 'pouchDB','$rootScope',function($scope, pouchDB) {
+    apphealth.controller('PatientController', ['$scope', 'pouchDB', '$rootScope', function ($scope, pouchDB, $rootScope) {
         $scope.data = null;
         
         var database=pouchDB('ehealth');
@@ -14,8 +14,17 @@
               $scope.data=data.rows;  
             
         });
+
+        $rootScope.$on("list", function () {
+            var database = pouchDB('ehealth');
+            database.allDocs({include_docs: true}).then(function (data) {
+                console.log(data);
+                $scope.data = data.rows;
+
+            });
+        });
     }]);
-    apphealth.directive('createPatient', ['pouchDB', '$timeout', function(pouchDB, $timeout) {
+    apphealth.directive('createPatient', ['pouchDB', '$timeout', '$rootScope', function (pouchDB, $timeout, $rootScope) {
         return {
             restrict: 'E', // Custom Element type
             replace: 'true', // Dom substitution or whatever the hell angular calls it
@@ -35,19 +44,18 @@
                 //Create a Patient for the Datasource
                 scope.addPatient = function() {
                     var db = pouchDB('ehealth',{adapter:'websql'});
-                    db.put(scope.model, function(err, response) {
-                        if (err) {
-                            return console.log(err);
-                        }
+                    db.put(scope.model).then(function (resp) {
                         //Create the response
-                        scope.status = true;
-                        scope.statusText = "Record Added !";
+                        document.getElementById("messageText").innerHTML = "Record Added !";
                         scope.model.firstname = scope.model.lastname = scope.model.email = null;
+                        $rootScope.$broadcast("list"); //trigger the event for the application
                         $timeout(function() {
                             scope.status = null;
-                            scope.statusText = "";
-                        }, 4000);
+                            document.getElementById("messageText").innerHTML = "";
+                        }, 3000);
+
                     });
+
                 };
             }
         };

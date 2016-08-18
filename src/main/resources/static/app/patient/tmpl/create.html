@@ -1,5 +1,5 @@
 <form >
-    <h1 ng-if="status">{{statusText}}</h1>
+    <h1 id="messageText"></h1>
     <div class="form-group">
         <input type="text" placeholder="FirstName" ng-model="model.firstname" class="form-control">
     </div>
@@ -12,5 +12,4 @@
     <div class="form-group">
         <input type="submit" ng-click="addPatient()" class="btn btn-inverse">
     </div>
-
 </form>
