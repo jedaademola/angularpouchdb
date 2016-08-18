@@ -1,3 +1,9 @@
+//Create the Application module    
+var AppHealth = angular.module('AppHealth', ['ui.router','pouchdb']);
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ['AppHealth']);
+});
+
 (function() {
     var apphealth = angular.module('AppHealth');
     apphealth.config(['$stateProvider', '$urlRouterProvider', '$provide', '$httpProvider',
